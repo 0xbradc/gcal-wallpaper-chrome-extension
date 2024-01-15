@@ -1,0 +1,22 @@
+{
+   "content_scripts": [ {
+      "css": [ "style.css" ],
+      "js": [ "content.js" ],
+      "matches": [ "https://calendar.google.com/calendar/*" ]
+   } ],
+   "content_security_policy": {
+   },
+   "description": "Adds a background image to Google Calendar.",
+   "icons": {
+      "128": "icon128.png"
+   },
+   "manifest_version": 3,
+   "name": "Custom GCal Background",
+   "options_page": "options.html",
+   "permissions": [ "storage" ],
+   "version": "1.0.0",
+   "web_accessible_resources": [ {
+      "matches": [ "\u003Call_urls>" ],
+      "resources": [ "options.html" ]
+   } ]
+}

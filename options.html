@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Custom GCal Background Options</title>
+  <style>
+    html {
+      margin: 0;
+      padding: 0;
+      border-top: 8px solid #8e24aa;
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      display: inline-block;
+      padding: 0 20px;
+    }
+    .field {
+      display: flex;
+      align-items: center;
+      height: 3em;
+    }
+    .title {
+      width: 160px;
+      text-align: center;
+      font-size: 16px;
+    }
+    .input {
+      display: flex;
+      flex-grow: 1;
+    }
+    .input input {
+      height: 2.4em;
+      padding: 0 12px;
+      flex-grow: 1;
+    }
+    button {
+      float: right;
+      margin: 8px;
+      line-height: 2em;
+      cursor: pointer;
+    }
+    #demoHolder {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      width: 60%;
+      height: 60%;
+    }
+    #demo {
+      display: flex;
+      width: 100%;
+      aspect-ratio: 16/10;
+      margin: 0 auto;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      border: 1px dashed black;
+    }
+    #sidebar {
+      display: flex;
+      height: 100%;
+      width: 20%;
+    }
+    #status {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      padding: 8px;
+      font-size: 20px;
+      color: white;
+      background-color: black;
+    }
+    .options {
+      padding-bottom: 1.5em;
+    }
+    .help .optionTitle {
+      text-decoration: underline;
+      padding-right: 8px;
+    }
+    .optionTitle, label {
+      font-size: 16px;
+      height: 24px;
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+    .optionTitle {
+      font-style: italic;
+    }
+    input[type="color"] {
+      flex-grow: 0;
+      width: calc(2.4em + 20px);
+    }
+    .options a {
+      font-size: 16px;
+      padding: 0 8px;
+    }
+    .options a:hover {
+      background-color: whitesmoke;
+    }
+    #t4Fields .details {
+      font-size: 16px;
+      padding: 16px;
+      line-height: 1.5em;
+    }
+    #t4Fields .details div {
+      padding-bottom: 16px;
+    }
+
+    .new_indicator {
+      color: red;
+      font-size: small;
+      vertical-align: super;
+      margin-left: -4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Custom Calendar Background options</h1>
+
+  <div>
+    <div class="options">
+      <span class="optionTitle">Overlay:</span>
+      <label><input id="o1" type="radio" name="overlay">Light overlay</label>
+      <label><input id="o2" type="radio" name="overlay">Dark overlay</label>
+    </div>
+    <div class="options">
+      <span class="optionTitle">Background:</span>
+      <label><input id="t1" type="radio" name="type">Image by URL</label>
+      <label><input id="t2" type="radio" name="type">Color</label>
+      <label><input id="t3" type="radio" name="type">Image by File</label>
+    </div>
+    <div id="t1Fields">
+      <div class="field">
+        <div class="title">Image URL:</div>
+        <div class="input">
+          <input id="url" type="url"/>
+        </div>
+      </div>
+    </div>
+    <div id="t2Fields">
+      <div class="field">
+        <div class="title">Color:</div>
+        <div class="input">
+          <input id="color" type="color"/>
+        </div>
+      </div>
+    </div>
+    <div id="t3Fields">
+      <div class="field">
+        <div class="title">Image File:</div>
+        <div class="input">
+          <input type="file" id="fileInput" accept=".jpg" />
+        </div>
+      </div>
+    </div>
+    <div class="details">
+      <div></div>
+      <div>
+        This app collects nothing about you. Enjoy this privacy-focused version. <br />
+      </div>
+    </div>
+  </div>
+  <button id="save">Save</button>
+  <button id="reset">Reset (without save)</button>
+  <div id="status"></div>
+  <div id="demoHolder">
+    <div id="demoHint">Example of what will be shown on the page:</div>
+    <div id="demo">
+      <div id="sidebar"></div>
+    </div>
+  </div>
+
+  <script src='options.js'></script>
+</body>
+</html>
